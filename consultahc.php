@@ -12,6 +12,9 @@
 			<input type="text" name="ficha">
 			<br>
 			<input type="submit" value="buscar">
+
 		</form>
+
+		
 </body>
 </html>

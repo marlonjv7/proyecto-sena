@@ -17,6 +17,7 @@ header {
     color: white;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
 }
 
@@ -49,6 +50,7 @@ header nav ul li a:hover {
 
 .container {
     background-color: rgba(255, 255, 255, 0.9);
+    padding: 80px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80%;
@@ -59,10 +61,12 @@ header nav ul li a:hover {
 .img-formu{
 
     background-color: rgba(255, 255, 255, 0.9);
-    /* padding: 80px; */
-    border-radius: 100%;
+    padding: 80px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 20%;
+    width: 50px;
+    margin: 50px auto;
+    text-align: center;   
 }    
 
 

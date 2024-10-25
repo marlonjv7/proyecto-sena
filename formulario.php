@@ -1,4 +1,8 @@
 <?php
+// Mostrar errores para depuración
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Conectar a la base de datos
 $servername = "localhost";
 $username_db = "root";
@@ -9,38 +13,60 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
 
 // Verificar la conexión
 if ($conn->connect_error) {
-	die("Conexión fallida: " . $conn->connect_error);
+    die("Conexión fallida: " . $conn->connect_error);
 }
 
 // Verificar si el formulario fue enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$role = $_POST['role'];
-	$name = $_POST['name'];
-	$document = $_POST['document'];
-	$email = $_POST['email'];
-	$password = password_hash($_POST['password'], PASSWORD_BCRYPT); // Encriptar la contraseña
-	$phone = $_POST['phone'];
+    $role = $_POST['role'];
+    
+    // Validar que el rol sea "paciente"
+    if ($role == 'paciente') {
+        // Verificar que los datos de los pacientes se están recibiendo
+        if (isset($_POST['name'], $_POST['document'], $_POST['email'], $_POST['password'], $_POST['phone'])) {
+            $name = $conn->real_escape_string($_POST['name']);
+            $document = $conn->real_escape_string($_POST['document']);
+            $email = $conn->real_escape_string($_POST['email']);
+            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+            $phone = $conn->real_escape_string($_POST['phone']);
 
-	$name1 = $_POST['name1'];
-	$document1 = $_POST['document1'];
-	$email1 = $_POST['email1'];
-	$password1 = password_hash($_POST['password1'], PASSWORD_BCRYPT); // Encriptar la contraseña
-	$phone1 = $_POST['phone1'];
+            // Consulta para insertar datos del paciente
+            $sql = "INSERT INTO paciente (rol_paciente, nombre, documento, correo, contrasena, telefono) 
+                    VALUES ('$role', '$name', '$document', '$email', '$password', '$phone')";
 
-	if ($role == 'paciente') {
-		$sql = "INSERT INTO paciente (rol_paciente, nombre, documento, correo, contrasena, telefono) VALUES ('$role', '$name', '$document', '$email', '$password', '$phone')";
-	} else {
-		$sql = "INSERT INTO medico (rol_medico, nombre, documento, correo,telefono, contrasena ) VALUES ('$role', '$name1', '$document1', '$email1','$phone1','$password1')";
-	}    // Insertar datos en la base de datos
+            // Ejecutar la consulta y verificar el resultado
+            if ($conn->query($sql) === TRUE) {
+                echo "Registro de paciente exitoso!";
+            } else {
+                echo "Error en el registro del paciente: " . $conn->error;
+            }
+        } else {
+            echo "Faltan algunos datos del paciente.";
+        }
+    } else if ($role == 'doctor') {
+        // Verificar que los datos del doctor se están recibiendo
+        if (isset($_POST['name1'], $_POST['document1'], $_POST['email1'], $_POST['password1'], $_POST['phone1'])) {
+            $name1 = $conn->real_escape_string($_POST['name1']);
+            $document1 = $conn->real_escape_string($_POST['document1']);
+            $email1 = $conn->real_escape_string($_POST['email1']);
+            $password1 = password_hash($_POST['password1'], PASSWORD_BCRYPT);
+            $phone1 = $conn->real_escape_string($_POST['phone1']);
 
+            // Consulta para insertar datos del médico
+            $sql = "INSERT INTO medico (rol_medico, nombre, documento, correo, telefono, contrasena) 
+                    VALUES ('$role', '$name1', '$document1', '$email1', '$phone1', '$password1')";
 
-	if ($conn->query($sql) === TRUE) {
-		echo "Registro exitoso!";
-	} else {
-		echo "Error: " . $sql . "<br>" . $conn->error;
-	}
+            // Ejecutar la consulta y verificar el resultado
+            if ($conn->query($sql) === TRUE) {
+                echo "Registro de doctor exitoso!";
+            } else {
+                echo "Error en el registro del doctor: " . $conn->error;
+            }
+        } else {
+            echo "Faltan algunos datos del doctor.";
+        }
+    }
 }
 
 $conn->close();
 ?>
-<?
