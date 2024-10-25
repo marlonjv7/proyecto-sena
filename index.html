@@ -109,6 +109,29 @@
                 </div>
             </div>
 
+            <hr class="m-5 w-50 mx-auto">
+            <!-- <div id="login" class="tab-content"  > -->
+                <div class="w-50 mx-auto">
+                    <h1 class="mt-5">Inicio de Sesión</h1>
+                    <form class="mx-auto d-flex flex-column" action="verificacion.php" method="POST">
+                        <label class="text-start mx-4" for="loginDocument">Número de Documento:</label>
+                        <input class="my-2 w-50 d-flex mx-auto" type="text" id="loginDocument" name="loginDocument"
+                            placeholder="Ingresa tu número de documento" required>
+    
+                        <label for="loginPassword">Contraseña:</label>
+                        <input class="my-2 w-50 d-flex mx-auto" type="password" id="loginPassword" name="loginPassword" placeholder="Ingresa tu contraseña"
+                            required>
+    
+                        <button class="rounded-4 mt-4 mb-5" type="submit">Iniciar Sesión</button>
+                    </form>
+                </div>
+                <!-- <div class="links">
+                    <a href="#" id="forgotPassword">Olvidé mi contraseña</a>
+                    <br>
+                    <a href="#register" class="tab-link" data-tab="register">Crear cuenta</a>
+                </div>
+            </div> -->
+
             <!-- Sección Consulta Historial Clínico -->
             <div id="history" class="tab-content">
                 <h1>Consulta de Historial Clínico</h1>

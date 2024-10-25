@@ -22,7 +22,8 @@ header {
 }
 
 header .logo img {
-    height: 40px;
+    height: 80px;
+    margin-right: 60% !important;
 }
 
 header nav ul {
