@@ -11,5 +11,6 @@ $conn = new mysqli($host, $usuario, $contrasena, $nombre_bd);
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
-echo "Conexión realizada";
+echo "Conexión realizada";
 ?>
+<?
