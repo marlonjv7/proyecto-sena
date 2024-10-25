@@ -12,17 +12,19 @@
 <body>
     <header>
         <div class="logo">
-            <img  src="images/icono-doctor.png" alt="Logo">
+            <img class="" src="images/icono-doctor.png" alt="Logo">
         </div>
-        <nav>
+
+        <nav class="d-flex">
             <ul class="d-flex">
-                <li><a href="#inicio" class="tab-link active" data-tab="inicio">Inicio</a></li>
-                <li><a href="#register" class="tab-link" data-tab="register">Registrarse</a></li>
-                <li><a href="#login" class="tab-link" data-tab="login">Inicio de Sesión</a></li>
+                <li class="my-auto"><a href="#inicio" class="tab-link active" data-tab="inicio">Inicio</a></li>
+                <li class="my-auto"><a href="#register" class="tab-link" data-tab="register">Registrarse</a></li>
+                <li class="my-auto"><a href="#login" class="tab-link" data-tab="login">Inicio de Sesión</a></li>
                 <!-- Historia Clínica eliminada -->
             </ul>
         </nav>
     </header>
+
     <main>
         <div class="container">
             <div id="inicio" class="tab-content active">
@@ -101,9 +103,9 @@
 
             <hr class="m-5 w-50 mx-auto">
             <!-- <div id="login" class="tab-content"  > -->
-                <div class="">
+                <div class="w-50 mx-auto">
                     <h1 class="mt-5">Inicio de Sesión</h1>
-                    <form class="w-50 mx-auto d-flex px-5 flex-column" action="verificacion.php" method="POST">
+                    <form class="mx-auto d-flex flex-column" action="verificacion.php" method="POST">
                         <label class="text-start mx-4" for="loginDocument">Número de Documento:</label>
                         <input class="my-2 w-50 d-flex mx-auto" type="text" id="loginDocument" name="loginDocument"
                             placeholder="Ingresa tu número de documento" required>
@@ -112,7 +114,7 @@
                         <input class="my-2 w-50 d-flex mx-auto" type="password" id="loginPassword" name="loginPassword" placeholder="Ingresa tu contraseña"
                             required>
     
-                        <button class="rounded-4 mt-3 mb-5" type="submit">Iniciar Sesión</button>
+                        <button class="rounded-4 mt-4 mb-5" type="submit">Iniciar Sesión</button>
                     </form>
                 </div>
                 <!-- <div class="links">
