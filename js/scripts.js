@@ -1,13 +1,36 @@
-/*!
-* Start Bootstrap - Creative v7.0.7 (https://startbootstrap.com/theme/creative)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-creative/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
+const tabLinks = document.querySelectorAll('.tab-link');
+const tabContents = document.querySelectorAll('.tab-content');
+const roleSelect = document.getElementById('role');
+const doctorFields = document.getElementById('doctorFields');
+const patientFields = document.getElementById('patientFields');
+const doctorSearchForm = document.getElementById('doctorSearchForm');
+const patientInfo = document.getElementById('patientInfo');
+const saveChanges = document.getElementById('saveChanges');
+const loginForm = document.getElementById('loginForm');
 
-window.addEventListener('DOMContentLoaded', event => {
+document.addEventListener('DOMContentLoaded', event => {
+
+    const roleSelect = document.getElementById('role');
+    const doctorFields = document.getElementById('doctorFields');
+    const patientFields = document.getElementById('patientFields');
+
+    function toggleFields() {
+        if (roleSelect.value === 'doctor') {
+            doctorFields.classList.remove('d-none');
+            doctorFields.classList.add('d-flex');
+            patientFields.classList.add('d-none');
+            patientFields.classList.remove('d-flex');
+        } else {
+            patientFields.classList.remove('d-none');
+            patientFields.classList.add('d-flex');
+            doctorFields.classList.add('d-none');
+            doctorFields.classList.remove('d-flex');
+        };
+    };
+
+    roleSelect.addEventListener('change', toggleFields);
+    toggleFields(); // Ejecuta una vez para ocultar los campos al cargar la página
+
 
     // Navbar shrink function
     var navbarShrink = function () {
@@ -67,17 +90,6 @@ form.addEventListener('input', function () {
 form.addEventListener('submit', function (event) {
     event.preventDefault(); // Evita el envío predeterminado del formulario
 
-    // Obtiene los valores de los campos
-    const tabLinks = document.querySelectorAll('.tab-link');
-    const tabContents = document.querySelectorAll('.tab-content');
-    const roleSelect = document.getElementById('role');
-    const patientFields = document.getElementById('patientFields');
-    const doctorFields = document.getElementById('doctorFields');
-    const doctorSearchForm = document.getElementById('doctorSearchForm');
-    const patientInfo = document.getElementById('patientInfo');
-    const saveChanges = document.getElementById('saveChanges');
-    const loginForm = document.getElementById('loginForm');
-
     // Validación de campos (puedes agregar más validaciones si es necesario)
     if (!name || !documento || !correo || !telefono || !contrasena || !role) {
         alert('Por favor complete todos los campos.');
@@ -118,6 +130,7 @@ form.addEventListener('submit', function (event) {
         alert('Hubo un problema con el servidor. Inténtelo más tarde.');
     });
 });
+
 if (doctorSearchForm) {
     doctorSearchForm.addEventListener('submit', (event) => {
         event.preventDefault();
