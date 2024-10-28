@@ -7,8 +7,12 @@
 
 document.addEventListener('DOMContentLoaded', event => {
     const roleSelect = document.getElementById('role');
-    const doctorFields = document.getElementById('doctorFields');
     const patientFields = document.getElementById('patientFields');
+    const doctorFields = document.getElementById('doctorFields');
+    const doctorSearchForm = document.getElementById('doctorSearchForm');
+    const patientInfo = document.getElementById('patientInfo');
+    const saveChanges = document.getElementById('saveChanges');
+    const loginForm = document.getElementById('loginForm');
 
     function toggleFields() {
         if (roleSelect.value === 'doctor') {
