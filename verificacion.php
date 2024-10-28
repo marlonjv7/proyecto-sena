@@ -34,6 +34,7 @@ $registros = $stmt->get_result();
 if ($registros->num_rows > 0) {
     // Usuario encontrado, hacer algo
     echo "Inicio de sesión exitoso.";
+    header("Location: Perfil.html");
 } else {
     // Usuario no encontrado o credenciales incorrectas
     echo "Nombre de usuario o contraseña incorrectos.";
@@ -42,21 +43,6 @@ if ($registros->num_rows > 0) {
 // Cerrar la declaración
 $stmt->close();
 
+};
 
-}
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login</title>
-</head>
-
-<body>
-	<!-- El contenido HTML incrustado aquí -->
-</body>
-
-</html>

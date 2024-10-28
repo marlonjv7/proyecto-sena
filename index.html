@@ -80,7 +80,7 @@
             </div>
         </div>
     </section>
-    >
+    
     <!-- Portfolio-->
     <div id="portfolio">
         <div class="container-fluid p-0">
@@ -96,6 +96,7 @@
                         </div>
                     </a>
                 </div>
+
                 <div class="col-lg-6 col-sm-2">
                     <a class="portfolio-box" href="assets/img/deberes.jpg" title="Project Name">
                         <img class="img-fluid"
@@ -107,75 +108,125 @@
                         </div>
                     </a>
                 </div>
-
             </div>
         </div>
     </div>
 
     <!-- Registro-->
     <section class="page-section" id="register">
-        <div id="register" class="tab-content mt-5 pt-3 flex-column">
-            <img src="images/medical-history.png" class="img-formu mt-5 mx-auto" alt="">
-            <h1 class="mt-5 h2">Registrarse</h1>
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center mt-0">Registrarse</h2>
+            <hr class="divider" />
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-lg-8 mx-auto">
+                    <form id="registrationForm" action="formulario.php" method="POST">
+                        <div class="mb-3">
+                            <label for="role">Selecciona tu rol:</label>
+                            <select class="form-select" id="role" name="role" required>
+                                <option value="">Seleccione...</option>
+                                <option value="doctor">Médico</option>
+                                <option value="patient">Paciente</option>
+                            </select>
+                            <div class="invalid-feedback" data-sb-feedback="role:required">Por favor selecciona tu rol.
+                            </div>
+                        </div>
 
-            <div class="w-50 mx-auto">
-                <form class="d-flex px-5 flex-column" action="formulario.php" method="POST">
+                        <div id="doctorFields" class="d-flex flex-column">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="nameDoctor" name="nameDoctor" type="text"
+                                    placeholder="Ingrese su nombre..." required />
+                                <label for="nameDoctor">Nombre completo doctor</label>
+                                <div class="invalid-feedback" data-sb-feedback="nameDoctor:required">Un nombre es requerido.
+                                </div>
+                            </div>
 
-                <label class="mx-4" for="role">Rol:</label>
-                <select class="d-flex" id="role" name="role" required>
-                    <option value="patient" id="paciente">Paciente</option>
-                    <option value="doctor" id="doctor">Médico</option>
-                </select>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="documentoDoctor" name="documentoDoctor" type="text"
+                                    placeholder="Ingrese su documento..." required />
+                                <label for="documentoDoctor">Cédula</label>
+                                <div class="invalid-feedback" data-sb-feedback="documentoDoctor:required">Un documento es
+                                    requerido.
+                                </div>
+                            </div>
 
-                    <!-- Campos para pacientes -->
-                    <div class="d-flex flex-column align-center" id="patientFields">
-                        <label class="text-start mx-4 mx-4" for="name">Nombres:</label>
-                        <input class="d-flex" type="text" id="name" name="name" placeholder="Ingresa tu nombre" required>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="emailDoctor" name="emailDoctor" type="email"
+                                    placeholder="nombre@ejemplo.com" required />
+                                <label for="emailDoctor">Correo electrónico</label>
+                                <div class="invalid-feedback" data-sb-feedback="emailDoctor:required">Un correo electrónico es
+                                    requerido.</div>
+                            </div>
 
-                        <label  class="text-start mx-4" for="document">Número de Documento:</label>
-                        <input  class="d-flex" type="text" id="document" name="document" placeholder="Ingresa tu número de documento"
-                            required>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="telefonoDoctor" name="telefonoDoctor" type="tel"
+                                    placeholder="Ingrese su teléfono..." required />
+                                <label for="telefonoDoctor">Teléfono</label>
+                                <div class="invalid-feedback" data-sb-feedback="telefonoDoctor:required">Un telefono es
+                                    requerido</div>
+                            </div>
 
-                        <label  class="text-start mx-4"for="email">Correo Electrónico:</label>
-                        <input  class="d-flex" type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico"
-                            required>
-                            
-                        <label  class="text-start mx-4"for="phone">Número de Teléfono:</label>
-                        <input  class="d-flex" type="tel" id="phone" name="phone" placeholder="Ingresa tu número de teléfono" required>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="passwordDoctor" name="passwordDoctor" type="password"
+                                    placeholder="Escriba su contraseña..." required />
+                                <label for="passwordDoctor">Contraseña</label>
+                                <div class="invalid-feedback" data-sb-feedback="passwordDoctor:required">La
+                                    La contraseña es requerida</div>
+                            </div>
+                        </div>
 
-                        <label  class="text-start mx-4"for="password">Contraseña:</label>
-                        <input  class="d-flex" type="password" id="password" name="password" placeholder="Ingresa tu contraseña"
-                            required>
-                    </div>
+                        <div id="patientFields" class="d-flex flex-column">
+                            <div class=" form-floating mb-3">
+                                <input class="form-control" id="namePatient" name="namePatient" type="text"
+                                    placeholder="Ingrese su nombre..."  />
+                                <label for="namePatient">Nombre completo paciente</label>
+                                <div class="invalid-feedback" data-sb-feedback="namePatient:required">Un nombre es requerido.
+                                </div>
+                            </div>
 
-                    <!-- Campos para médicos -->
-                    <div id="doctorFields" class="flex-column align-center">
-                        <label  class="text-start mx-4"for="name">Nombres:</label>
-                        <input  class="d-flex" type="text" id="name1" name="name1" placeholder="Ingresa tu nombre" required>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="documentoPatient" name="documentoPatient" type="text"
+                                    placeholder="Ingrese su documento..."  />
+                                <label for="documentoPatient">Cédula</label>
+                                <div class="invalid-feedback" data-sb-feedback="documentoPatient:required">Un documento es
+                                    requerido.
+                                </div>
+                            </div>
 
-                        <label  class="text-start mx-4"for="document">Número de Documento:</label>
-                        <input  class="d-flex" type="text" id="document1" name="document1" placeholder="Ingresa tu número de documento"
-                            required>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="emailPatient" name="emailPatient" type="email"
+                                    placeholder="nombre@ejemplo.com"  />
+                                <label for="emailPatient">Correo electrónico</label>
+                                <div class="invalid-feedback" data-sb-feedback="emailPatient:required">Un correo electrónico es
+                                    requerido.</div>
+                            </div>
 
-                        <label  class="text-start mx-4"for="email">Correo Electrónico:</label>
-                        <input  class="d-flex" type="email" id="email1" name="email1" placeholder="Ingresa tu correo electrónico"
-                            required>
-                            
-                        <label  class="text-start mx-4"for="phone">Número de Teléfono:</label>
-                        <input  class="d-flex" type="tel" id="phone1" name="phone1" placeholder="Ingresa tu número de teléfono"
-                            required>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="telefonoPatient" name="telefonoPatient" type="tel"
+                                    placeholder="Ingrese su teléfono..." />
+                                <label for="telefonoPatient">Telefono</label>
+                                <div class="invalid-feedback" data-sb-feedback="telefonoPatient:required">El telefono es
+                                    requerido</div>
+                            </div>
 
-                        <label  class="text-start mx-4"for="password">Contraseña:</label>
-                        <input  class="d-flex" type="password" id="password1" name="password1" placeholder="Ingresa tu contraseña"
-                            required>
-                    </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="passwordPatient" name="passwordPatient" type="password"
+                                    placeholder="Escriba su contraseña..." />
+                                <label for="passwordPatient">Contraseña</label>
+                                <div class="invalid-feedback" data-sb-feedback="passwordPatient:required">La Contraseña es
+                                    requerida.</div>
+                            </div>
+                        </div>
 
-                    <button class="rounded-4 mt-4 w-25 mx-auto" type="submit">Registrarse</button>
-                </form>
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Registrarse</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
     </section>
+
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4">
@@ -208,7 +259,6 @@
             </div>
         </div>
     </footer>
-
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
