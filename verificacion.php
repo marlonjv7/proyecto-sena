@@ -37,7 +37,9 @@ if ($registros->num_rows > 0) {
     header("Location: Perfil.html");
 } else {
     // Usuario no encontrado o credenciales incorrectas
-    
+    echo "Nombre de usuario o contraseña incorrectos."; // boton para devolver
+    sleep(3); // Pausa la ejecución durante 3 segundos
+    header("Location: iniciosesion.html"); // redireciona al inicio de sesion
 }
 
 // Cerrar la declaración
