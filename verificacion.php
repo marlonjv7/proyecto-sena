@@ -37,7 +37,7 @@ if ($registros->num_rows > 0) {
     header("Location: Perfil.html");
 } else {
     // Usuario no encontrado o credenciales incorrectas
-    echo "Nombre de usuario o contraseña incorrectos.";
+    
 }
 
 // Cerrar la declaración

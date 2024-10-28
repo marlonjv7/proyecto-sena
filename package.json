@@ -1,0 +1,22 @@
+{
+  "name": "clinicacol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marlonjv7/proyecto-sena.git#marlon"
+  },
+  "author": "clinicacol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marlonjv7/proyecto-sena/issues"
+  },
+  "homepage": "https://github.com/marlonjv7/proyecto-sena/tree/marlon#readme",
+  "dependencies": {
+    "sweetalert2": "^11.14.4"
+  }
+}
