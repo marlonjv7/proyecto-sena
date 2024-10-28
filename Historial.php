@@ -15,26 +15,35 @@ $result_medicos = $conn->query($sql_medicos);
 
 // Verificar si se han enviado los datos del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtener los datos del formulario
     $id_paciente = $_POST['id_paciente'];
     $id_medico = $_POST['id_medico'];
     $diagnostico = $_POST['diagnostico'];
     $tratamiento = $_POST['tratamiento'];
     $fecha = $_POST['fecha'];
 
+    // Preparar la consulta SQL para insertar los datos
     $sql = "INSERT INTO historial_clinico (id_paciente, id_medico, diagnostico, tratamiento, fecha) 
             VALUES (?, ?, ?, ?, ?)";
+
+    // Preparar la declaración
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("iisss", $id_paciente, $id_medico, $diagnostico, $tratamiento, $fecha);
 
+    // Ejecutar la declaración
     if ($stmt->execute()) {
         $_SESSION['mensaje'] = "Historial clínico registrado exitosamente.";
         header("Location: historialclinico.php");
-        exit();
+        exit(); // Asegúrate de salir después de la redirección
     } else {
         echo "Error: " . $stmt->error;
     }
+
+    // Cerrar la declaración y la conexión
     $stmt->close();
     $conn->close();
+} else {
+    echo "No se han enviado datos.";
 }
 ?>
 
@@ -47,6 +56,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
+<!-- Barra de navegación con botón de regresar a la derecha -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">Historial Clínico</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <button class="btn btn-warning" onclick="regresar()">Regresar</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <div class="container mt-5">
     <div class="card">
@@ -113,8 +140,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script>
     function editarHistorial() {
         alert("Función para modificar el historial en desarrollo...");
-        // Aquí podrías implementar una redirección o cargar los datos en el formulario para edición.
-        // Ejemplo de redirección: window.location.href = 'editar_historial.php?id=' + id;
+    }
+
+    function regresar() {
+        window.history.back(); // Regresar a la página anterior
     }
 </script>
 
