@@ -14,7 +14,7 @@
         <div class="row justify-content-center" style="margin-top: 100px;">
             <div class="col-md-6">
                 <h2 class="text-center">Iniciar Sesión</h2>
-                <form>
+                <!-- <form action="verificacion.php" method="POST">
                     <div class="form-group">
                         <label for="username">Nombre de Usuario</label>
                         <input type="text" class="form-control" id="username" placeholder="Ingrese su nombre de usuario"
@@ -29,6 +29,18 @@
                         <button type="submit" class="btn btn-primary btn-block" href="Perfil.html">Iniciar Sesión</button>                        </button>
                     </div>
 
+                </form> -->
+
+                <form class="w-50 mx-auto d-flex px-5 flex-column" action="verificacion.php" method="POST">
+                    <label class="text-start mx-4" for="loginDocument">Número de Documento:</label>
+                    <input class="my-2 w-50 d-flex mx-auto" type="text" id="loginDocument" name="loginDocument"
+                        placeholder="Ingresa tu número de documento" required>
+
+                    <label for="loginPassword">Contraseña:</label>
+                    <input class="my-2 w-50 d-flex mx-auto" type="password" id="loginPassword" name="loginPassword" placeholder="Ingresa tu contraseña"
+                        required>
+
+                    <button class="rounded-4 mt-3 mb-5" type="submit" href="Perfil.html">Iniciar Sesión</button>
                 </form>
                 <div class="text-center" style="margin-top: 10px;">
                     <a href="#">¿Olvidaste tu contraseña?</a>

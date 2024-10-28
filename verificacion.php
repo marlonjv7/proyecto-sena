@@ -42,21 +42,6 @@ if ($registros->num_rows > 0) {
 // Cerrar la declaración
 $stmt->close();
 
+};
 
-}
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login</title>
-</head>
-
-<body>
-	<!-- El contenido HTML incrustado aquí -->
-</body>
-
-</html>
