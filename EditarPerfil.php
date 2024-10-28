@@ -122,7 +122,7 @@ $conn->close();
     <h1>Editar Usuario</h1>
     <form method="post" action="">
         <label for="name">Nombre:</label>
-        <input type="text" name="name" value="<?php echo isset($user['nombre']) ? $user['nombre'] : ''; ?>" required>
+        <input type="text" name="name" value="<?php echo isset($conn['nombre']) ? $user['nombre'] : ''; ?>" required>
         <br>
         <label for="document">Documento:</label>
         <input type="text" name="document" value="<?php echo isset($user['documento']) ? $user['documento'] : ''; ?>" required>
