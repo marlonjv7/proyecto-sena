@@ -40,8 +40,12 @@ if ($registros->num_rows > 0) {
 } else {
     // Usuario no encontrado o credenciales incorrectas
     echo "Nombre de usuario o contraseña incorrectos."; // boton para devolver
+<<<<<<< HEAD
     sleep(3); // Pausa la ejecución durante 3 segundos
     header("Location: iniciosesion.html"); // redireciona al inicio de sesion
+=======
+    echo '<a href="iniciosesion.html" class="btn btn-primary btn-lg mt-3">Volver a intentar</a>'; // Botón estilizado
+>>>>>>> 9ca643acea00adc78bb82e00627c268a9da9c23b
 }
 
 // Cerrar la declaración
