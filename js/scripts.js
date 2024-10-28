@@ -7,8 +7,12 @@
 
 document.addEventListener('DOMContentLoaded', event => {
     const roleSelect = document.getElementById('role');
-    const doctorFields = document.getElementById('doctorFields');
     const patientFields = document.getElementById('patientFields');
+    const doctorFields = document.getElementById('doctorFields');
+    const doctorSearchForm = document.getElementById('doctorSearchForm');
+    const patientInfo = document.getElementById('patientInfo');
+    const saveChanges = document.getElementById('saveChanges');
+    const loginForm = document.getElementById('loginForm');
 
     function toggleFields() {
         if (roleSelect.value === 'doctor') {
@@ -90,8 +94,7 @@ form.addEventListener('submit', function (event) {
     if (!name || !documento || !correo || !telefono || !contrasena || !role) {
         alert('Por favor complete todos los campos.');
 
-        window.location.href = 'Perfil.html';
-        return;
+        window.location.href = 'historialclinico.php'
     }
 
     // Crea el objeto de datos a enviar
@@ -129,6 +132,7 @@ form.addEventListener('submit', function (event) {
     });
 
 });
+
 
 // if (doctorSearchForm) {
 //     doctorSearchForm.addEventListener('submit', (event) => {
