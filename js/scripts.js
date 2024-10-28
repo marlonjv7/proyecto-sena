@@ -94,8 +94,7 @@ form.addEventListener('submit', function (event) {
     if (!name || !documento || !correo || !telefono || !contrasena || !role) {
         alert('Por favor complete todos los campos.');
 
-        window.location.href = 'Perfil.html';
-        return;
+        window.location.href = 'historialclinico.html'
     }
 
     // Crea el objeto de datos a enviar
