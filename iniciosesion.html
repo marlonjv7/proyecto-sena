@@ -14,7 +14,8 @@
         <div class="row justify-content-center" style="margin-top: 100px;">
             <div class="col-md-6">
                 <h2 class="text-center">Iniciar Sesión</h2>
-                <!-- <form action="verificacion.php" method="POST">
+
+                <form action="verificacion.php" method="POST">
                     <div class="form-group">
                         <label for="loginDocument">Numero de Documento</label>
                         <input type="text" class="form-control" id="loginDocument" name="loginDocument"
@@ -22,30 +23,20 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="password"
+                        <label for="loginPassword">Contraseña</label>
+                        <input type="password" class="form-control" id="loginPassword" name="loginPassword"
                             placeholder="Ingrese su contraseña" required>
                     </div>
 
                     <div>
                         <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
                     </div>
-                </form> -->
-
-                <form class="w-50 mx-auto d-flex px-5 flex-column" action="verificacion.php" method="POST">
-                    <label class="text-start mx-4" for="loginDocument">Número de Documento:</label>
-                    <input class="my-2 w-50 d-flex mx-auto" type="text" id="loginDocument" name="loginDocument"
-                        placeholder="Ingresa tu número de documento" required>
-
-                    <label for="loginPassword">Contraseña:</label>
-                    <input class="my-2 w-50 d-flex mx-auto" type="password" id="loginPassword" name="loginPassword"
-                        placeholder="Ingresa tu contraseña" required>
-
-                    <button class="rounded-4 mt-3 mb-5" type="submit">Iniciar Sesión</button>
                 </form>
+
                 <div class="text-center" style="margin-top: 10px;">
                     <a href="#">¿Olvidaste tu contraseña?</a>
                 </div>
+
                 <!-- Botón para regresar al menú principal -->
                 <div class="text-center" style="margin-top: 20px;">
                     <a href="index.html" class="btn btn-secondary">Regresar al Menú Principal</a>
@@ -53,7 +44,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Enlace a Bootstrap JS y dependencias de jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
