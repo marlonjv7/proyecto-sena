@@ -33,20 +33,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los resultados
     $registros = $stmt->get_result();
 
-    if ($registros->num_rows > 0) {
-        // Usuario encontrado, hacer algo
-        echo "Inicio de sesión exitoso.";
-        header("Location: Perfil.html");
-        exit; // Asegúrate de que no se ejecute el código posterior
-    } else {
-        // Usuario no encontrado o credenciales incorrectas
-        echo '<div class="alert alert-danger" role="alert">Nombre de usuario o contraseña incorrectos.</div>';
-        echo '<a href="iniciosesion.html" class="btn btn-primary btn-lg mt-3">Volver a intentar</a>'; // Botón estilizado
-    }
-
-    // Cerrar la declaración
-    $stmt->close();
+if ($registros->num_rows > 0) {
+    // Usuario encontrado, hacer algo
+    echo "Inicio de sesión exitoso.";
+    header("Location: Perfil.html");
+} else {
+    // Usuario no encontrado o credenciales incorrectas
+    echo "Nombre de usuario o contraseña incorrectos."; // boton para devolver
+    sleep(3); // Pausa la ejecución durante 3 segundos
+    header("Location: iniciosesion.html"); // redireciona al inicio de sesion
 }
+
+// Cerrar la declaración
+$stmt->close();
 
 // Cerrar la conexión
 $conn->close();

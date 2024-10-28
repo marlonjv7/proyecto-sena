@@ -47,15 +47,19 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Información del paciente</h5>
+
+                        
                         <p><strong>Edad:</strong> 28 años</p>
                         <p><strong>Correo electrónico:</strong> ana.paola@example.com</p>
                         <p><strong>Teléfono:</strong> 3138217454</p>
                         <hr>
                         <div class="d-grid gap-3">
-                            <button class="btn btn-primary" onclick="descargarHistorial()">Descargar Historial
+                            <button class="btn btn-primary">Descargar Historial
                                 Clínico</button>
-                            <button class="btn btn-secondary" onclick="verAtencion()">Visualizar Atención
+                            <button class="btn btn-secondary">Visualizar Atención
                                 Recibida</button>
+                            <button class="btn btn-secondary" onclick="location.href='Perfil.php'">Editar datos de
+                                perfil</button>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,14 @@
+<?php
+$connection = new mysqli("localhost", "root", "", "clinicadb");
+
+if ($connection->connect_error) {
+    die("Error de conexión: " . $connection->connect_error);
+}
+
+$result = $connection->query("SELECT * FROM medico");
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,18 +27,11 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Gestión de Usuario</a>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <button class="btn btn-outline-light" onclick="cerrarSesion()">Cerrar Sesión</button>
-          </li>
-        </ul>
-      </div>
     </div>
   </nav>
 
   <!-- Contenido Principal -->
-  <div class="container mt-5">
+  <div class="container mt-5 d-flex flex-column">
     <h2 class="text-center mb-4"></h2>
     
     <!-- Imagen debajo del título -->
@@ -39,36 +43,39 @@
     <div id="notification" class="alert alert-success notification" role="alert"></div>
 
     <!-- Tabla de visualización de usuario -->
-    <table class="table table-bordered table-responsive">
-      <thead class="table-dark">
-        <tr>
+    <table class="table table-bordered table-responsive d-flex flex-column w-100">
+      <thead class="table-dark w-100">
+        <tr class="w-100">
+          <th>ID</th>
           <th>Nombre</th>
           <th>Documento</th>
           <th>Correo</th>
           <th>Teléfono</th>
           <th>Contraseña</th>
-          <th>Acciones</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="w-100">
+      <?php while ($row = $result->fetch_assoc()): ?>
         <tr>
-          <td id="nombre">John Doe</td>
-          <td id="documento">12345678</td>
-          <td id="correo">john@example.com</td>
-          <td id="telefono">123-456-7890</td>
-          <td id="contrasena">••••••••</td>
-          <td>
-            <button class="btn btn-primary btn-sm" onclick="abrirModalEditar()">Editar</button>
-            <button class="btn btn-secondary btn-sm" onclick="cancelarCambios()">Cancelar Cambios</button>
+          <td id="id-medico"><?php echo $row['id_medico']; ?></td>
+          <td id="nombre"><?php echo $row['nombre']; ?></td>
+          <td id="documento"><?php echo $row['documento']; ?></td>
+          <td id="correo"><?php echo $row['correo']; ?></td>
+          <td id="telefono"><?php echo $row['telefono']; ?></td>
+          <td id="contrasena"><?php echo $row['contrasena']; ?></td>
+          <td class="d-flex gap-5">
+            <button class="btn btn-primary btn-sm" onclick="location.href='EditarPerfil.php?id_medico=<?php echo $row['id_medico']; ?>'">Editar</button>
+            <button class="btn btn-secondary btn-sm" onclick="cancelarCambios()">Cancelar</button>
             <button class="btn btn-danger btn-sm" onclick="eliminarUsuario()">Eliminar</button>
           </td>
         </tr>
+        <?php endwhile; ?>
       </tbody>
     </table>
 
     <!-- Botones adicionales alineados a la derecha -->
     <div class="d-flex justify-content-end mt-3">
-      <button class="btn btn-success me-2" onclick="guardarCambios()">Guardar</button>
+      <button class="btn btn-success me-2" onclick="location.href='historialclinico.php'">Guardar</button>
       <button class="btn btn-info" onclick="verDetalle()">Ver Detalle</button>
     </div>
   </div>
@@ -157,3 +164,5 @@
   </script>
 </body>
 </html>
+
+<?php $connection->close(); ?>

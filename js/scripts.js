@@ -94,7 +94,7 @@ form.addEventListener('submit', function (event) {
     if (!name || !documento || !correo || !telefono || !contrasena || !role) {
         alert('Por favor complete todos los campos.');
 
-        window.location.href = 'historialclinico.html'
+        window.location.href = 'historialclinico.php'
     }
 
     // Crea el objeto de datos a enviar
@@ -132,6 +132,7 @@ form.addEventListener('submit', function (event) {
     });
 
 });
+
 
 // if (doctorSearchForm) {
 //     doctorSearchForm.addEventListener('submit', (event) => {
