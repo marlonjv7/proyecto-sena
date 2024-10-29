@@ -122,112 +122,84 @@
                     <form id="registrationForm" action="formulario.php" method="POST">
                         <div class="mb-3">
                             <label for="role">Selecciona tu rol:</label>
-                            <select class="form-select" id="role" name="role" required>
+                            <select class="form-select" id="role" name="role" required onchange="toggleFields()">
                                 <option value="">Seleccione...</option>
                                 <option value="doctor">Médico</option>
-                                <option value="patient">Paciente</option>
+                                <option value="paciente">Paciente</option>
                             </select>
                             <div class="invalid-feedback" data-sb-feedback="role:required">Por favor selecciona tu rol.
                             </div>
                         </div>
 
-                        <div id="doctorFields" class="d-flex flex-column">
+                        <!-- Campos para Doctor -->
+                        <div id="doctorFields" class="d-none flex-column">
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="nameDoctor" name="nameDoctor" type="text"
-                                    placeholder="Ingrese su nombre..." required />
+                                    placeholder="Ingrese su nombre..." />
                                 <label for="nameDoctor">Nombre completo doctor</label>
-                                <div class="invalid-feedback" data-sb-feedback="nameDoctor:required">Un nombre es requerido.
-                                </div>
                             </div>
-
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="documentoDoctor" name="documentoDoctor" type="text"
-                                    placeholder="Ingrese su documento..." required />
+                                    placeholder="Ingrese su documento..." />
                                 <label for="documentoDoctor">Cédula</label>
-                                <div class="invalid-feedback" data-sb-feedback="documentoDoctor:required">Un documento es
-                                    requerido.
-                                </div>
                             </div>
-
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="emailDoctor" name="emailDoctor" type="email"
-                                    placeholder="nombre@ejemplo.com" required />
+                                    placeholder="nombre@ejemplo.com" />
                                 <label for="emailDoctor">Correo electrónico</label>
-                                <div class="invalid-feedback" data-sb-feedback="emailDoctor:required">Un correo electrónico es
-                                    requerido.</div>
                             </div>
-
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="telefonoDoctor" name="telefonoDoctor" type="tel"
-                                    placeholder="Ingrese su teléfono..." required />
+                                    placeholder="Ingrese su teléfono..." />
                                 <label for="telefonoDoctor">Teléfono</label>
-                                <div class="invalid-feedback" data-sb-feedback="telefonoDoctor:required">Un telefono es
-                                    requerido</div>
                             </div>
-
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="passwordDoctor" name="passwordDoctor" type="password"
-                                    placeholder="Escriba su contraseña..." required />
+                                    placeholder="Escriba su contraseña..." />
                                 <label for="passwordDoctor">Contraseña</label>
-                                <div class="invalid-feedback" data-sb-feedback="passwordDoctor:required">La
-                                    La contraseña es requerida</div>
                             </div>
                         </div>
 
-                        <div id="patientFields" class="d-flex flex-column">
-                            <div class=" form-floating mb-3">
+                        <!-- Campos para Paciente -->
+                        <div id="patientFields" class="d-none flex-column">
+                            <div class="form-floating mb-3">
                                 <input class="form-control" id="namePatient" name="namePatient" type="text"
-                                    placeholder="Ingrese su nombre..."  />
+                                    placeholder="Ingrese su nombre..." />
                                 <label for="namePatient">Nombre completo paciente</label>
-                                <div class="invalid-feedback" data-sb-feedback="namePatient:required">Un nombre es requerido.
-                                </div>
                             </div>
-
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="documentoPatient" name="documentoPatient" type="text"
-                                    placeholder="Ingrese su documento..."  />
+                                    placeholder="Ingrese su documento..." />
                                 <label for="documentoPatient">Cédula</label>
-                                <div class="invalid-feedback" data-sb-feedback="documentoPatient:required">Un documento es
-                                    requerido.
-                                </div>
                             </div>
-
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="emailPatient" name="emailPatient" type="email"
-                                    placeholder="nombre@ejemplo.com"  />
+                                    placeholder="nombre@ejemplo.com" />
                                 <label for="emailPatient">Correo electrónico</label>
-                                <div class="invalid-feedback" data-sb-feedback="emailPatient:required">Un correo electrónico es
-                                    requerido.</div>
                             </div>
-
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="telefonoPatient" name="telefonoPatient" type="tel"
                                     placeholder="Ingrese su teléfono..." />
-                                <label for="telefonoPatient">Telefono</label>
-                                <div class="invalid-feedback" data-sb-feedback="telefonoPatient:required">El telefono es
-                                    requerido</div>
+                                <label for="telefonoPatient">Teléfono</label>
                             </div>
-
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="passwordPatient" name="passwordPatient" type="password"
                                     placeholder="Escriba su contraseña..." />
                                 <label for="passwordPatient">Contraseña</label>
-                                <div class="invalid-feedback" data-sb-feedback="passwordPatient:required">La Contraseña es
-                                    requerida.</div>
                             </div>
                         </div>
 
                         <div class="d-grid">
-                            <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Registrarse</button>
+                            <button class="btn btn-primary btn-lg" id="submitButton" type="submit"
+                                disabled>Registrarse</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
     </section>
 
-   
+
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4">
         <div class="container">
@@ -267,6 +239,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simple-lightbox.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script>
+        function toggleFields() {
+            const role = document.getElementById("role").value;
+            document.getElementById("doctorFields").classList.toggle("d-none", role !== "doctor");
+            document.getElementById("patientFields").classList.toggle("d-none", role !== "paciente");
+        }
+    </script>
 </body>
 
 </html>

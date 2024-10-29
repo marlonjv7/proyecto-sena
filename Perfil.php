@@ -44,6 +44,15 @@ $result = $connection->query("SELECT * FROM medico");
     <!-- Notificación -->
     <div id="notification" class="alert alert-success notification" role="alert"></div>
 
+    <?php if (isset($_GET['mensaje']) && $_GET['mensaje'] == 'eliminado'): ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Usuario eliminado con éxito.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
+    <?php endif; ?>
+
+
     <!-- Tabla de visualización de usuario -->
     <table class="table table-bordered table-responsive d-flex flex-column ">
       <thead class="table-dark">
