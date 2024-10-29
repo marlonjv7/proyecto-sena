@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="iniciosesion.html">Cerrar sesión</a>
+                        <a class="nav-link" href="index.html">Cerrar sesión</a>
                     </li>
                 </ul>
             </div>
@@ -53,11 +53,11 @@
                         <p><strong>Teléfono:</strong> 3138217454</p>
                         <hr>
                         <div class="d-grid gap-3">
-                            <button class="btn btn-primary" onclick="descargarHistorial()">Descargar Historial Clínico</button>
-                            <button class="btn btn-secondary" onclick="verAtencion()">Visualizar Atención Recibida</button>
+                            <button class="btn btn-primary" onclick="<?php echo `alert(Descargando historial clínico.)` ?>">Descargar Historial Clínico</button>
+                            <button class="btn btn-secondary" onclick="<?php echo "decargar historial" ?>">Visualizar Atención Recibida</button>
                             <button class="btn btn-secondary" onclick="location.href='Perfil.php'">Editar datos de perfil</button>
                             <!-- Cambiado el enlace a 'historial.php' -->
-                            <button class="btn btn-warning" onclick="location.href='historial.php'">Editar Historial Clínico</button>
+                            <button class="btn btn-warning" onclick="location.href='historial.php'">Registrar Historial Clínico</button>
                         </div>
                     </div>
                 </div>
