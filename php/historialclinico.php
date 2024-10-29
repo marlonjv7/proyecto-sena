@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de Usuario</title>
+    <title>Historial Clínico</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -22,12 +22,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="iniciosesion.html">Cerrar sesión</a>
+                        <a class="nav-link" href="index.html">Cerrar sesión</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <!-- Sección de perfil -->
     <div class="container mt-5">
         <div class="row">
@@ -52,10 +53,11 @@
                         <p><strong>Teléfono:</strong> 3138217454</p>
                         <hr>
                         <div class="d-grid gap-3">
-                            <button class="btn btn-primary" onclick="descargarHistorial()">Descargar Historial
-                                Clínico</button>
-                            <button class="btn btn-secondary" onclick="verAtencion()">Visualizar Atención
-                                Recibida</button>
+                            <button class="btn btn-primary" onclick="<?php echo `alert(Descargando historial clínico.)` ?>">Descargar Historial Clínico</button>
+                            <button class="btn btn-secondary" onclick="<?php echo "decargar historial" ?>">Visualizar Atención Recibida</button>
+                            <button class="btn btn-secondary" onclick="location.href='Perfil.php'">Editar datos de perfil</button>
+                            <!-- Cambiado el enlace a 'historial.php' -->
+                            <button class="btn btn-warning" onclick="location.href='historial.php'">Registrar Historial Clínico</button>
                         </div>
                     </div>
                 </div>
@@ -71,14 +73,12 @@
         // Función para descargar el historial clínico (simulación)
         function descargarHistorial() {
             alert("Descargando historial clínico...");
-            // Aquí puedes agregar la lógica para descargar el archivo, por ejemplo, usando una URL a un archivo PDF.
             window.location.href = 'ruta-al-historial-clinico.pdf'; // Simula la descarga
         }
 
         // Función para visualizar la atención recibida
         function verAtencion() {
             alert("Redirigiendo a la página de atención recibida...");
-            // Aquí puedes agregar la lógica para redirigir a una página o mostrar un modal con la información
             window.location.href = 'pagina-atencion-recibida.html'; // Simula la redirección
         }
     </script>

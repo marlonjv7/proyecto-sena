@@ -34,29 +34,15 @@ $registros = $stmt->get_result();
 if ($registros->num_rows > 0) {
     // Usuario encontrado, hacer algo
     echo "Inicio de sesión exitoso.";
+    header("Location: historialclinico.php");
 } else {
     // Usuario no encontrado o credenciales incorrectas
-    echo "Nombre de usuario o contraseña incorrectos.";
+    echo "Nombre de usuario o contraseña incorrectos."; // boton para devolver
+    echo '<a href="iniciosesion.html" class="btn btn-primary btn-lg mt-3">Volver a intentar</a>'; // Botón estilizado
 }
-
 // Cerrar la declaración
 $stmt->close();
 
+};
 
-}
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login</title>
-</head>
-
-<body>
-	<!-- El contenido HTML incrustado aquí -->
-</body>
-
-</html>
