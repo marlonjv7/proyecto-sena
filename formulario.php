@@ -1,4 +1,4 @@
-<?php
+<?php 
 // Mostrar errores para depuración
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $nameDoctor = $conn->real_escape_string($_POST['nameDoctor']);
             $documentoDoctor = $conn->real_escape_string($_POST['documentoDoctor']);
             $emailDoctor = $conn->real_escape_string($_POST['emailDoctor']);
-            $passwordDoctor = password_hash($_POST['passwordDoctor'], PASSWORD_BCRYPT);
+            $passwordDoctor = password_hash($_POST['passwordDoctor']);
             $telefonoDoctor = $conn->real_escape_string($_POST['telefonoDoctor']);
 
             // Consulta para insertar datos del médico
@@ -69,5 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 };
 
 $conn->close();
+
+
 
 ?>
