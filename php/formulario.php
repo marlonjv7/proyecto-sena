@@ -1,4 +1,5 @@
 <?php
+include 'conexion.php';
 
 // Mostrar errores para depuración
 error_reporting(E_ALL);
@@ -72,4 +73,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 
-?>
+

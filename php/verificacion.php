@@ -1,4 +1,6 @@
 <?php
+include 'conexion.php';
+
 $servername = "localhost";
 $username_db = "root";
 $password_db = "";
@@ -45,4 +47,4 @@ $stmt->close();
 
 };
 
-?>
+

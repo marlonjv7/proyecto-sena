@@ -8,12 +8,12 @@ if ($connection->connect_error) {
 }
 
 // Verificar si se recibe el ID del médico a eliminar
-if (isset($_GET['id_medico'])) {
-    $id_medico = $_GET['id_medico'];
+if (isset($_GET['id_paciente'])) {
+    $id_paciente = $_GET['id_paciente'];
 
     // Preparar la consulta para eliminar el registro
-    $stmt = $connection->prepare("DELETE FROM medico WHERE id_medico = ?");
-    $stmt->bind_param("i", $id_medico);
+    $stmt = $connection->prepare("DELETE FROM paciente WHERE id_paciente = ?");
+    $stmt->bind_param("i", $id_paciente);
 
     // Ejecutar la consulta
     if ($stmt->execute()) {
@@ -21,12 +21,12 @@ if (isset($_GET['id_medico'])) {
         header("Location: Perfil.php?mensaje=eliminado");
         exit();
     } else {
-        echo "Error al eliminar el usuario: " . $stmt->error;
+        echo "Error al eliminar el paciente: " . $stmt->error;
     }
 
     $stmt->close();
 } else {
-    echo "ID de médico no proporcionado.";
+    echo "ID del paciente no proporcionado.";
 }
 
 $connection->close();

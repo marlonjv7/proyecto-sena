@@ -1,4 +1,5 @@
 <?php // Crear conexión
+include 'conexion.php';
 
 
 $connection = new mysqli("localhost", "root", "", "clinicadb");
