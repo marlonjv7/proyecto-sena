@@ -1,4 +1,5 @@
 <?php
+
 // Mostrar errores para depuración
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -19,15 +20,14 @@ if ($conn->connect_error) {
 // Verificar si el formulario fue enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $role = $_POST['role'];
-    
-    // Validar que el rol sea "paciente"
+
+    // Validación para Paciente
     if ($role == 'paciente') {
-        // Verificar que los datos de los pacientes se están recibiendo
         if (isset($_POST['namePatient'], $_POST['documentoPatient'], $_POST['emailPatient'], $_POST['passwordPatient'], $_POST['telefonoPatient'])) {
             $namePatient = $conn->real_escape_string($_POST['namePatient']);
             $documentoPatient = $conn->real_escape_string($_POST['documentoPatient']);
             $emailPatient = $conn->real_escape_string($_POST['emailPatient']);
-            $passwordPatient = password_hash($_POST['passwordPatient'], PASSWORD_BCRYPT);
+            $passwordPatient = $conn->real_escape_string($_POST['passwordPatient']);
             $telefonoPatient = $conn->real_escape_string($_POST['telefonoPatient']);
 
             // Consulta para insertar datos del paciente
@@ -43,13 +43,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Faltan algunos datos del paciente.";
         }
-    } else if ($role == 'doctor') {
-        // Verificar que los datos del doctor se están recibiendo
+    }
+
+    // Validación para Doctor
+    else if ($role == 'doctor') {
         if (isset($_POST['nameDoctor'], $_POST['documentoDoctor'], $_POST['emailDoctor'], $_POST['passwordDoctor'], $_POST['telefonoDoctor'])) {
             $nameDoctor = $conn->real_escape_string($_POST['nameDoctor']);
             $documentoDoctor = $conn->real_escape_string($_POST['documentoDoctor']);
             $emailDoctor = $conn->real_escape_string($_POST['emailDoctor']);
-            $passwordDoctor = password_hash($_POST['passwordDoctor'], PASSWORD_BCRYPT);
+            $passwordDoctor = $conn->real_escape_string($_POST['passwordDoctor']);
             $telefonoDoctor = $conn->real_escape_string($_POST['telefonoDoctor']);
 
             // Consulta para insertar datos del médico
