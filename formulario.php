@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD:php/formulario.php
-include 'conexion.php';
-=======
->>>>>>> 53af4304713ab754d4544c0e665c3312ffb181a9:formulario.php
 
 // Mostrar errores para depuración
 error_reporting(E_ALL);

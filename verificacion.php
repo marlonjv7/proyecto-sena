@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD:php/verificacion.php
-include 'conexion.php';
-=======
 session_start(); // Iniciar la sesión
->>>>>>> 53af4304713ab754d4544c0e665c3312ffb181a9:verificacion.php
 
 $servername = "localhost";
 $username_db = "root";
@@ -58,39 +54,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 }
-<<<<<<< HEAD:php/verificacion.php
-
-// Preparar la consulta
-$stmt = $conn->prepare("SELECT * FROM medico WHERE documento = ? AND contrasena = ?");
-
-if ($stmt === false) {
-    die("Error en la consulta SQL: " . $conn->error); // Muestra el error si la consulta falla
-}
-
-// Asociar los parámetros (s = string)
-$stmt->bind_param("ss", $username, $password);
-
-// Ejecutar la consulta
-$stmt->execute();
-
-// Obtener los resultados
-$registros = $stmt->get_result();
-
-if ($registros->num_rows > 0) {
-    // Usuario encontrado, hacer algo
-    echo "Inicio de sesión exitoso.";
-    header("Location: historialclinico.php");
-} else {
-    // Usuario no encontrado o credenciales incorrectas
-    echo "Nombre de usuario o contraseña incorrectos."; // boton para devolver
-    echo '<a href="iniciosesion.html" class="btn btn-primary btn-lg mt-3">Volver a intentar</a>'; // Botón estilizado
-}
-// Cerrar la declaración
-$stmt->close();
-
-};
-
-
-=======
 ?>
->>>>>>> 53af4304713ab754d4544c0e665c3312ffb181a9:verificacion.php
