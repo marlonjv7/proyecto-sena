@@ -1,4 +1,6 @@
 <?php
+session_start(); // Iniciar sesión
+
 // Conectar a la base de datos
 $conn = new mysqli('localhost', 'root', '', 'clinicadb');
 
@@ -33,18 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Ejecutar la declaración
     if ($stmt->execute()) {
-        $_SESSION['mensaje'] = "Historial clínico registrado exitosamente.";
-        header("Location: historialclinico.php");
-        exit(); // Asegúrate de salir después de la redirección
+        // Mensaje de éxito
+        echo "<div class='alert alert-success text-center'>Historial clínico registrado exitosamente.</div>";
     } else {
-        echo "Error: " . $stmt->error;
+        // Mostrar el error si la ejecución falla
+        echo "<div class='alert alert-danger text-center'>Error al registrar el historial: " . $stmt->error . "</div>";
     }
 
     // Cerrar la declaración y la conexión
     $stmt->close();
     $conn->close();
-} else {
-    echo "No se han enviado datos.";
 }
 ?>
 
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2>Registro de Historial Clínico</h2>
         </div>
         <div class="card-body">
-            <form action="historialclinico.php" method="POST">
+            <form action="historial.php" method="POST"> <!-- Enviar datos a historial.php -->
                 
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -131,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!-- Botones para Guardar y Modificar -->
                 <div class="form-group text-center mt-4">
                     <button type="submit" class="btn btn-primary">Guardar</button>
-                    <button type="button" class="btn btn-secondary" onclick="editarHistorial()">Modificar</button>
+                    <!-- <button type="button" class="btn btn-secondary" onclick="editarHistorial()">Modificar</button> -->
                 </div>
             </form>
         </div>
@@ -144,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     function regresar() {
-        window.history.back(); // Regresar a la página anterior
+        window.location.href = "historialclinico.php"; // Regresar a la página anterior
     }
 </script>
 
