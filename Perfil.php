@@ -79,3 +79,4 @@ $result = $connection->query($sql);
 </html>
 
 <?php $connection->close(); ?>
+

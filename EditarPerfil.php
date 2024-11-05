@@ -112,3 +112,4 @@ $stmt->close();
 </html>
 
 <?php $connection->close(); ?>
+
