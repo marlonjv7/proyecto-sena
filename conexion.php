@@ -4,7 +4,7 @@ $username_db = "root";
 $password_db = "";
 $dbname = "clinicadb";
 
-$conn = new mysqli($server, $username_db, $password_db,, $dbname);
+$conn = new mysqli($server, $username_db, $password_db, $dbname);
 
 
 if ($conn->connect_error) {
