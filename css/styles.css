@@ -376,6 +376,20 @@ th {
   border-width: 0;
 }
 
+/* Aplica un ancho fijo a todas las columnas */
+table.formulario {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  width: 20%; /* Ajusta el valor según la cantidad de columnas */
+  padding: 10px; /* Espacio interno */
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+
 label {
   display: inline-block;
 }
@@ -12766,6 +12780,37 @@ header.masthead h1,
 header.masthead .h1 {
   font-size: 2.25rem;
 }
+
+header.masthead2 {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/Quienes-somos.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+header.masthead2 h1,
+header.masthead2 .h1 {
+  font-size: 2.25rem;
+}
+
+header.masthead3 {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/iniciarsesion.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+header.masthead3 h1,
+header.masthead3 .h1 {
+  font-size: 2.25rem;
+}
+
 
 @media (min-width: 992px) {
   header.masthead {
