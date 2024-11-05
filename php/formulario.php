@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $namePatient = $conn->real_escape_string($_POST['namePatient']);
             $documentoPatient = $conn->real_escape_string($_POST['documentoPatient']);
             $emailPatient = $conn->real_escape_string($_POST['emailPatient']);
-            $passwordPatient = password_hash($_POST['passwordPatient'], PASSWORD_BCRYPT);
+            $passwordPatient = $conn->real_escape_string($_POST['passwordPatient']);
             $telefonoPatient = $conn->real_escape_string($_POST['telefonoPatient']);
 
             // Consulta para insertar datos del paciente
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $nameDoctor = $conn->real_escape_string($_POST['nameDoctor']);
             $documentoDoctor = $conn->real_escape_string($_POST['documentoDoctor']);
             $emailDoctor = $conn->real_escape_string($_POST['emailDoctor']);
-            $passwordDoctor = password_hash($_POST['passwordDoctor'], PASSWORD_BCRYPT);
+            $passwordDoctor = $conn->real_escape_string($_POST['passwordDoctor']);
             $telefonoDoctor = $conn->real_escape_string($_POST['telefonoDoctor']);
 
             // Consulta para insertar datos del médico
